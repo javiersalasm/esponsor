@@ -1,59 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ☕ Soportify - Plataforma de Apoyo para Creadores
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel_11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue_3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![Inertia.js](https://img.shields.io/badge/Inertia.js-9553E9?style=for-the-badge&logo=inertia&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## About Laravel
+Soportify es una mini plataforma full-stack desarrollada como solución al **Desafío Técnico de eSponsor**. Permite a los creadores de contenido configurar una página pública, gestionar sus enlaces y recibir apoyos financieros simbólicos de su comunidad.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Requisitos Previos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Asegúrate de tener instalado en tu entorno local:
+* [PHP](https://www.php.net/) >= 8.2
+* [Composer](https://getcomposer.org/)
+* [Node.js](https://nodejs.org/) (v18 o superior) y NPM
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Instalación y Configuración
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Sigue estos pasos para levantar el entorno de desarrollo local:
 
-## Laravel Sponsors
+### 1. Clonar el repositorio y dependencias
+```bash
+git clone [https://github.com/javiersalasm/esponsor.git](https://github.com/javiersalasm/esponsor.git)
+cd esponsor
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Instalar dependencias de PHP
+composer install
 
-### Premium Partners
+# Instalar dependencias de Node.js
+npm install
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Configuración del Entorno (.env)
+Copia el archivo de ejemplo para crear tu configuración local:
+```bash
+cp .env.example .env
+```
+Genera la clave de la aplicación:
+```bash
+php artisan key:generate
+```
 
-## Contributing
+### 3. Base de Datos y Migraciones
+Por defecto en Laravel 11, puedes usar SQLite para un entorno de pruebas rápido. Si prefieres MySQL o PostgreSQL, actualiza las credenciales en tu `.env`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Ejecuta las migraciones para crear las tablas:
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+### 4. Enlace de Almacenamiento (¡Importante! ⚠️)
+Para que los avatares subidos por los usuarios sean visibles públicamente, debes crear el enlace simbólico hacia la carpeta `storage/app/public`:
+```bash
+php artisan storage:link
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 💻 Ejecución del Proyecto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Este proyecto utiliza Laravel en el backend y Vite para compilar los assets de Vue en el frontend. **Necesitarás mantener dos terminales abiertas simultáneamente.**
 
-## License
+**Terminal 1 (Servidor Backend):**
+```bash
+php artisan serve
+```
+*(El servidor se iniciará en `http://localhost:8000`)*
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Terminal 2 (Servidor de Desarrollo Frontend / Vite):**
+```bash
+npm run dev
+```
+*(Este proceso vigilará los cambios en los archivos `.vue` y aplicará Hot Module Replacement)*
+
+¡Listo! Ya puedes acceder a la aplicación desde tu navegador en `http://localhost:8000`.
+
+---
+
+## 👨‍💻 Autor
+
+**Javier Ignacio Salas Mardones**
