@@ -1,4 +1,4 @@
-# ☕ Soportify - Plataforma de Apoyo para Creadores
+# Soportify - Plataforma de Apoyo para Creadores
 
 ![Laravel](https://img.shields.io/badge/Laravel_11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/Vue_3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
@@ -12,7 +12,7 @@ Soportify es una mini plataforma full-stack desarrollada como solución al **Des
 ## 🚀 Requisitos Previos
 
 Asegúrate de tener instalado en tu entorno local:
-* [PHP](https://www.php.net/) >= 8.2
+* [PHP](https://www.php.net/) >= 8.4
 * [Composer](https://getcomposer.org/)
 * [Node.js](https://nodejs.org/) (v18 o superior) y NPM
 
